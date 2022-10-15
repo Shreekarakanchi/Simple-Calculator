@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+        }
+        input{
+            width: 100px;
+            height: 30px;
+        }
+        #dd{
+            width: 400px;
+            text-align: right;
+        }
+        #ff{
+            text-align: right;
+        }
+        .cal{
+            border: solid black 1px;
+            width: 420px;
+
+        }
+    </style>
+</head>
+
+<body>
+<div class="cal">
+    <h1>Simple Calculator</h1>
+  
+    <input type="text" id="dd" placeholder="0"  readonly >
+    <p id="ff">0</p>
+    <input type="button" name="" id="" value="1" onclick="number(1),equal()">
+    <input type="button" name="" id="" value="2" onclick="number(2),equal()">
+    <input type="button" name="" id="" value="3" onclick="number(3),equal()">
+    <input type="button" name="" id="" value="+" onclick="str(),number('+'),equal()"><br>
+    <input type="button" name="" id="" value="4" onclick="number(4),equal()">
+    <input type="button" name="" id="" value="5" onclick="number(5),equal()">
+    <input type="button" name="" id="" value="6" onclick="number(6),equal()">
+    <input type="button" name="" id="" value="-" onclick="str(),number('-'),equal()"><br>
+    <input type="button" name="" id="" value="7" onclick="number(7),equal()">
+    <input type="button" name="" id="" value="8" onclick="number(8),equal()">
+    <input type="button" name="" id="" value="9" onclick="number(9),equal()">
+    <input type="button" name="" id="" value="X" onclick="str(),number('*'),equal()"><br>
+    <input type="button" name="" id="" value="0" onclick="number(0),equal()">
+    <input type="button" name="" id="" value="BC" onclick="backspace(),equal(),load()">
+    <input type="button" name="" id="" value="AC" onclick="reset(),load()">
+    <input type="button" name="" id="" value="/" onclick="str(),number('/'),equal()">
+    <input type="button" name="" id="" value="." onclick="str(),number('.')">
+    
+ 
+</div>
+
+
+    <script>
+
+
+        function equal() {
+
+            var cal = document.getElementById("dd").value;
+            var cal = eval(cal);
+            document.getElementById("ff").innerHTML = cal;
+        }
+        function number(num) {
+            document.getElementById("dd").value += num;
+           
+    
+        }
+        // function bb(){
+        //     var value = document.getElementById("dd").value;
+        //     var bc = document.getElementById("dd").value = value.slice(0,-1);
+        // }
+        function str(){
+            var st=document.getElementById("dd").value;
+            var sp=st.split('');
+            var last=sp.pop()
+            if(last=='+'||last=='-'||last=='*'||last=='/'||last=='.')
+            {
+                var value = document.getElementById("dd").value;
+            document.getElementById("dd").value = value.substring(0, value.length - 1);
+            }
+        }
+     
+        function backspace() {
+            var value = document.getElementById("dd").value;
+            var bc = document.getElementById("dd").value = value.substring(0, value.length - 1);
+            // document.getElementById("ff").innerHTML=bc;
+        }
+        function reset() {
+            var value = document.getElementById("dd").value;
+            var set = document.getElementById("dd").value = " ";
+            document.getElementById("ff").innerHTML=set;
+        }
+        function load(){
+            var zero=0;
+            var ll=document.getElementById("dd").value;
+            if(ll=="")
+            {
+                document.getElementById("ff").innerHTML=zero;
+            }
+        }
+       
+
+    </script>
+</body>
+
+</html>
